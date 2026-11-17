@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lines · Graph calculator</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header><a href="/" class="brand">∿ <span>Lines</span></a><span class="tag">A little algebra. A clearer picture.</span></header>
+  <main>
+    <section class="intro"><p class="eyebrow">EXPLORE THE CONNECTION</p><h1>Two lines. <br>Endless possibilities.</h1><p>Change an equation, move a slider, and see where your lines meet.</p></section>
+    <div class="workspace">
+      <section class="controls" aria-label="Line equations">
+        <div class="section-heading"><h2>Your equations</h2><button id="reset" class="text-button">Reset</button></div>
+        <form id="equations" novalidate>
+          <article class="line-card first">
+            <label for="first"><span class="dot"></span>Line 1</label>
+            <input id="first" name="first" value="y = 2x + 1" maxlength="200" spellcheck="false" autocomplete="off" aria-describedby="first-error">
+            <p id="first-error" class="error" aria-live="polite"></p>
+            <div id="first-sliders" class="sliders"></div>
+          </article>
+          <article class="line-card second">
+            <label for="second"><span class="dot"></span>Line 2</label>
+            <input id="second" name="second" value="y = -x + 4" maxlength="200" spellcheck="false" autocomplete="off" aria-describedby="second-error">
+            <p id="second-error" class="error" aria-live="polite"></p>
+            <div id="second-sliders" class="sliders"></div>
+          </article>
+          <button class="primary" type="submit">Plot equations <span aria-hidden="true">↗</span></button>
+        </form>
+        <div class="examples"><p>TRY A RELATIONSHIP</p><button data-example="parallel">Parallel lines</button><button data-example="identical">Same line</button><button data-example="vertical">Vertical line</button></div>
+        <details><summary>What can I enter?</summary><p>Try <code>y = 2x + 1</code>, <code>x = 3</code>, or <code>2x + 3y = 6</code>. Fractions, decimals, parentheses, and multiplication work too. Use only x and y; curves are not supported.</p></details>
+      </section>
+      <section class="visual" aria-label="Graph and result">
+        <div class="graph-heading"><span><span class="live-dot"></span>LIVE GRAPH</span><div class="zoom"><button id="zoom-out" aria-label="Zoom out">−</button><button id="zoom-in" aria-label="Zoom in">+</button><button id="fit">Fit lines</button></div></div>
+        <svg id="graph" viewBox="0 0 680 520" role="img" aria-labelledby="graph-title graph-description"><title id="graph-title">Two-line coordinate graph</title><desc id="graph-description">Loading equations.</desc></svg>
+        <div class="legend"><span><i class="swatch blue"></i>Line 1</span><span><i class="swatch orange"></i>Line 2</span><span><i class="point-swatch"></i>Intersection</span></div>
+        <div class="result" aria-live="polite" aria-atomic="true"><p class="eyebrow" id="result-label">CALCULATING</p><h2 id="result-title">Finding the connection…</h2><p id="result-detail"></p></div>
+      </section>
+    </div>
+    <footer>Built for curiosity. Powered by Python.</footer>
+  </main>
+</body>
+</html>
